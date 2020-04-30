@@ -18,7 +18,7 @@ class NewsCategory(models.Model):
 
 class NewsQuerySet(models.QuerySet):
     def with_base_relations(self):
-        return self.prefetch_related('category')
+        return self.prefetch_related('categories')
 
     def annotate_has_active_category(self):
         return self.annotate(has_active_category=models.Case(

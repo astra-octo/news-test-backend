@@ -19,7 +19,7 @@ class BaseNewsSerializer(serializers.ModelSerializer):
         model = News
         fields = [
             'id',
-            'name',
+            'title',
             'categories',
             'created_at',
         ]

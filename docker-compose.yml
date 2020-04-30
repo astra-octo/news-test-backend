@@ -3,28 +3,25 @@ version: '3.1'
 services:
   backend:
     build: .
+    command: python manage.py runserver 0.0.0.0:8000
     restart: always
     volumes:
       - ./:/code
     env_file:
       - ./__docker_files__/.env.backend
-    networks:
-      - backend
     depends_on:
       - database # load after database init
+    ports:
+      - 8000:8000
   database:
     image: postgres
     restart: always
     expose:
       - 5432
     volumes:
-      - ./__docker_files__/pgdata:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
     env_file:
       - ./__docker_files__/.env.database
-    networks:
-      - backend
 
-
-networks:
-  frontend:
-  backend:
+volumes:
+  pg_data:

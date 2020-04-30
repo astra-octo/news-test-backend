@@ -9,7 +9,7 @@ SECRET_KEY = 'ep8)t1%e-_aku8%w$cd$pj21au$*6)rd6foyi!go=iv*8pc%ku'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0']
 
 ROOT_URLCONF = 'news.urls'
 
