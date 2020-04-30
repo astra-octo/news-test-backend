@@ -6,7 +6,7 @@ from apps.news.models import News, NewsCategory
 from apps.news.serializers.web import WebNewsSerializer
 
 
-class WebNewsListRetrieve(generics.RetrieveAPIView):
+class WebNewsList(generics.ListAPIView):
     queryset = News.objects.with_base_relations().active()
     serializer_class = WebNewsSerializer
     permission_classes = (AllowAny,)
@@ -17,6 +17,6 @@ class WebNewsListRetrieve(generics.RetrieveAPIView):
     filterset_class = NewsFilter
 
 
-class WebNewsCategoriesList(generics.RetrieveAPIView):
+class WebNewsCategoriesList(generics.ListAPIView):
     queryset = NewsCategory.objects.active()
 

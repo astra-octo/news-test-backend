@@ -26,7 +26,7 @@ class NewsQuerySet(models.QuerySet):
                 categories__is_active=True, then=True
             ),
             default=False,
-            output_field=models.BooleanField
+            output_field=models.BooleanField(),
         ))
 
     def active(self):
