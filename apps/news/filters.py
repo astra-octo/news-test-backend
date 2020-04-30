@@ -9,6 +9,7 @@ class NewsFilter(filters.FilterSet):
 
     class Meta:
         model = News
+        fields = ['category']
 
     @staticmethod
     def by_category(queryset: NewsQuerySet, _, value: str):
