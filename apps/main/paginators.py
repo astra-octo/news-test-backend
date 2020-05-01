@@ -7,6 +7,6 @@ class BasePaginator(pagination.PageNumberPagination):
         return Response({
             'next': self.page.next_page_number() if self.page.has_next() else None,
             'prev': self.page.previous_page_number() if self.page.has_previous() else None,
-            'current': self.page.number,
+            'page': self.page.number,
             'data': data,
         })

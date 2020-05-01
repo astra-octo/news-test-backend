@@ -24,3 +24,6 @@ class WebNewsCategoriesList(generics.ListAPIView):
     queryset = NewsCategory.objects.active()
     serializer_class = WebNewsCategorySerializer
 
+    pagination_class = None
+
+
