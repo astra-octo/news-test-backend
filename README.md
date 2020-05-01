@@ -9,6 +9,7 @@
         - POSTGRES_PASSWORD
         - POSTGRES_USER
         - POSTGRES_DB
-2) run docker ( `docker-compose build && docker-compose up -d` ). Starting on localhost:8888
-3) run migrations `docker-compose run --rm backend sh -c "python manage.py migrate"`
-4) create superuser `docker-compose run --rm backend sh -c "python manage.py createsuperuser"`
+2) run `chmod -x ./deploy.sh && ./deploy.sh` for auto-deploy or
+3) run docker ( `docker-compose build && docker-compose up -d` ). Starting on localhost:8888
+4) run migrations `docker-compose run --rm backend sh -c "python manage.py migrate"`
+5) create superuser `docker-compose run --rm backend sh -c "python manage.py createsuperuser"`
