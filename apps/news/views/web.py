@@ -3,7 +3,8 @@ from rest_framework.permissions import AllowAny
 
 from apps.news.filters import NewsFilter
 from apps.news.models import News, NewsCategory
-from apps.news.serializers.web import WebNewsSerializer
+from apps.news.serializers.web import WebNewsSerializer, WebNewsCategorySerializer
+from apps.main.paginators import BasePaginator
 
 
 class WebNewsList(generics.ListAPIView):
@@ -16,7 +17,10 @@ class WebNewsList(generics.ListAPIView):
 
     filterset_class = NewsFilter
 
+    pagination_class = BasePaginator
+
 
 class WebNewsCategoriesList(generics.ListAPIView):
     queryset = NewsCategory.objects.active()
+    serializer_class = WebNewsCategorySerializer
 

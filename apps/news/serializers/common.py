@@ -13,7 +13,7 @@ class BaseNewsCategorySerializer(serializers.ModelSerializer):
 
 
 class BaseNewsSerializer(serializers.ModelSerializer):
-    categories = BaseNewsCategorySerializer()
+    categories = BaseNewsCategorySerializer(many=True)
 
     class Meta:
         model = News
