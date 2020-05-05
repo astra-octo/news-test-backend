@@ -1,3 +1,4 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, filters
 from rest_framework.permissions import AllowAny
 
@@ -12,9 +13,7 @@ class WebNewsList(generics.ListAPIView):
     serializer_class = WebNewsSerializer
     permission_classes = (AllowAny,)
 
-    filter_backends = [filters.OrderingFilter]
-    ordering_fields = ['created_at']
-
+    filter_backends = (DjangoFilterBackend,)
     filterset_class = NewsFilter
 
     pagination_class = BasePaginator

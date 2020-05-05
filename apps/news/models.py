@@ -15,6 +15,9 @@ class NewsCategory(models.Model):
 
     objects = NewsCategoryQuerySet.as_manager()
 
+    def __str__(self):
+        return self.name
+
 
 class NewsQuerySet(models.QuerySet):
     def with_base_relations(self):
@@ -59,3 +62,6 @@ class News(BaseModel):
 
     class Meta:
         ordering = ['-created_at']
+
+    def __str__(self):
+        return self.title

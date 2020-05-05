@@ -20,6 +20,7 @@ class BaseNewsSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'title',
+            'image',
             'categories',
             'created_at',
         ]

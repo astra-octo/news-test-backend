@@ -13,6 +13,8 @@ services:
       - database # load after database init
     ports:
       - 8000:8000
+    networks:
+      - news-backend-test
   database:
     image: postgres
     restart: always
@@ -22,6 +24,13 @@ services:
       - pg_data:/var/lib/postgresql/data
     env_file:
       - ./__docker_files__/.env.database
+    networks:
+      - news-backend-test
 
 volumes:
   pg_data:
+
+networks:
+  news-backend-test:
+    external:
+      name: news-backend-test
